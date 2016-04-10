@@ -1,0 +1,150 @@
+// Bowman's CSCI1301 Project 2
+// Adam Adkins
+// 6/11/2015
+// Main File for Statistics.java & StaSum.java
+
+import java.util.Random;
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main {
+  public static void main (String[] args){ 
+    Random r = new Random();
+    Scanner scan = new Scanner(System.in);
+//----------------------------------------------------
+//-------- Create Three Arrays For Test Purposes. ----
+//---Array One----------------------------------------
+    int[] array = new int[99]; 
+    for(int i = 0; i < 99; i++) {
+        array[i] = r.nextInt(500-10)+10;}
+    Statistics stat = new Statistics(array);
+    int min = stat.MinValue(array);
+    int firstQuartile = stat.FirstQuartile(array);
+    int median = stat.Median(array);
+    int thirdQuartile = stat.ThirdQuartile(array);
+    int max = stat.MaxValue(array);
+    int range = stat.Range(array);
+//---Array Two---------------------------------    
+    int[] array1 = new int[99]; 
+    for(int i = 0; i < 99; i++) {
+        array1[i] = r.nextInt(250-50)+50;}
+    Statistics stat1 = new Statistics(array1);
+    int min1 = stat1.MinValue(array1);
+    int firstQuartile1 = stat1.FirstQuartile(array1);
+    int median1 = stat1.Median(array1);
+    int thirdQuartile1 = stat1.ThirdQuartile(array1);
+    int max1 = stat1.MaxValue(array1);
+    int range1 = stat1.Range(array1);
+//---Array Three--------------------------------
+    int[] array2 = new int[10]; 
+    for(int i = 0; i < 10; i++) {
+        array2[i] = r.nextInt(197-32)+32;}
+    Statistics stat2 = new Statistics(array2);
+    int min2 = stat2.MinValue(array2);
+    int firstQuartile2 = stat2.FirstQuartile(array2);
+    int median2 = stat2.Median(array2);
+    int thirdQuartile2 = stat2.ThirdQuartile(array2);
+    int max2 = stat2.MaxValue(array2);
+    int range2 = stat2.Range(array2);
+//---------------------------   
+// Test Statistic's Methods.
+//---------------------------
+//-------------------ARRAY ONE----------------------------------------------------------------------------------------------------------------******
+    System.out.println("-------------------ARRAY ONE---------------------------------------------------------------------------------------------");
+    System.out.println("The Array: [10,500]");
+    System.out.println(Arrays.toString(array));
+    System.out.println();
+    System.out.println("Max: "+max);
+    System.out.println("Min: "+min);
+    System.out.println("Range: "+range);
+    System.out.println();
+    System.out.println("Mean: "+(stat.Mean(array)));
+    System.out.println("Median: "+median);
+    System.out.println("Mode: "+(stat.Mode(array)));
+    System.out.println();
+    System.out.println("Standard Deviation: "+(stat.Deviation(array)));
+    System.out.println();
+    System.out.println("First Quartile: "+firstQuartile);
+    System.out.println("Third Quartile: "+thirdQuartile);
+    System.out.println();
+    System.out.println("5-Number Summary: "+(Arrays.toString((stat.StatSum(min, firstQuartile, median, thirdQuartile, max)))));
+    System.out.println();
+    //---------------------------   
+    // Divide the Array equally.
+   //----------------------------
+    System.out.println("How Many parts should we divide the array into? ");
+    int userCount = scan.nextInt();
+    int chunk = (array.length/userCount);
+    System.out.println("Divided Array: ");
+    int beanCount = 0;
+    for(int i=0;i<array.length;i+=chunk){
+    beanCount++;
+    System.out.println(beanCount+". "+(Arrays.toString(Arrays.copyOfRange(array, i, i+chunk))));}
+    
+//-------------------ARRAY TWO----------------------------------------------------------------------------------------------------------------******
+    System.out.println("-------------------ARRAY TWO---------------------------------------------------------------------------------------------");
+    System.out.println("The Array: [50,250]");
+    System.out.println(Arrays.toString(array1));
+    System.out.println();
+    System.out.println("Max: "+max1);
+    System.out.println("Min: "+min1);
+    System.out.println("Range: "+range1);
+    System.out.println();
+    System.out.println("Mean: "+(stat1.Mean(array1)));
+    System.out.println("Median: "+median1);
+    System.out.println("Mode: "+(stat1.Mode(array1)));
+    System.out.println();
+    System.out.println("Standard Deviation: "+(stat1.Deviation(array1)));
+    System.out.println();
+    System.out.println("First Quartile: "+firstQuartile1);
+    System.out.println("Third Quartile: "+thirdQuartile1);
+    System.out.println();
+    System.out.println("5-Number Summary: "+(Arrays.toString((stat1.StatSum(min1, firstQuartile1, median1, thirdQuartile1, max1)))));
+    System.out.println();
+    //---------------------------
+    // Divide the Array equally.
+    //---------------------------
+    System.out.println("How Many parts should we divide the array into? ");
+    int userCount2 = scan.nextInt();
+    int chunk2 = (array1.length/userCount2);
+    System.out.println("Divided Array: ");
+    int beanCount2 = 0;
+    for(int i=0;i<array1.length;i+=chunk2){
+    beanCount2++;
+    System.out.println(beanCount2+". "+(Arrays.toString(Arrays.copyOfRange(array1, i, i+chunk2))));}
+    
+//-------------------ARRAY THREE----------------------------------------------------------------------------------------------------------------******
+    System.out.println("-------------------ARRAY THREE---------------------------------------------------------------------------------------------");
+    System.out.println("The Array: [32,197]");
+    System.out.println(Arrays.toString(array2));
+    System.out.println();
+    System.out.println("Max: "+max2);
+    System.out.println("Min: "+min2);
+    System.out.println("Range: "+range2);
+    System.out.println();
+    System.out.println("Mean: "+(stat2.Mean(array2)));
+    System.out.println("Median: "+median2);
+    System.out.println("Mode: "+(stat2.Mode(array2)));
+    System.out.println();
+    System.out.println("Standard Deviation: "+(stat2.Deviation(array2)));
+    System.out.println();
+    System.out.println("First Quartile: "+firstQuartile2);
+    System.out.println("Third Quartile: "+thirdQuartile2);
+    System.out.println();
+    System.out.println("5-Number Summary: "+(Arrays.toString((stat2.StatSum(min2, firstQuartile2, median2, thirdQuartile2, max2)))));
+    System.out.println();
+    //---------------------------
+    // Divide the Array equally.
+    //---------------------------
+    System.out.println("How Many parts should we divide the array into? ");
+    int userCount3 = scan.nextInt();
+    int chunk3 = (array2.length/userCount3);
+    System.out.println("Divided Array: ");
+    int beanCount3 = 0;
+    for(int i=0;i<array2.length;i+=chunk3){
+    beanCount3++;
+    System.out.println(beanCount3+". "+(Arrays.toString(Arrays.copyOfRange(array2, i, i+chunk3))));}
+    
+    scan.close();
+  }
+}

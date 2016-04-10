@@ -1,0 +1,22 @@
+// Homework PP8.8. Due: 11/12/14
+// Author: Adam Adkins
+// Created: 11/5/2014
+
+public class peopleEater
+{
+  private String fname;
+  private String lname; 
+  private int zip;
+  
+  public peopleEater(String first, String last, int zipCode);
+  {
+    fname = first;
+    lname = last;
+    zip = zipCode;
+  }
+  
+  public String toString()
+  {
+    return fname + "\t" + lname + "\t" + zip;
+  }
+  
