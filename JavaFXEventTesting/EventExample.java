@@ -12,7 +12,6 @@ import java.util.HashSet;
 
 
 public class EventExample extends Application{
-  
   public static void main(String[] args){
     launch(args);
   }
@@ -29,7 +28,6 @@ public class EventExample extends Application{
   static Image down;
   static Image downGreen;
   static Image spacebg;
-  static Image cheatUnlock;
   static HashSet<String> currentlyActiveKeys;
   
   @Override
@@ -86,10 +84,6 @@ public class EventExample extends Application{
     return EventExample.class.getResource(filename).toString();
   }
   
-  
-  
-
-  
   private static void tickAndRender(){
     // clear canvas
     graphicsContext.clearRect(0,0,WIDTH,HEIGHT);
@@ -113,14 +107,12 @@ public class EventExample extends Application{
     else{
       graphicsContext.drawImage(up,209,10);
     }
-    
     if(currentlyActiveKeys.contains("DOWN")){
       graphicsContext.drawImage(downGreen,209,140);
     }
     else{
       graphicsContext.drawImage(down,209,140);
     }
-
   }
 }
     
