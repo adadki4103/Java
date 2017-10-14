@@ -1,0 +1,7 @@
+public class WordDragon
+  {
+ public static void main(String[] args)
+       {  
+       new DragAndDropTextBoxes();
+       }
+  }
